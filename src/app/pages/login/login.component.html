@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="validateCtrl" ng-init="login=false">
+<div>
+  <div class="box" ng-if="!login">
+    <h2>Login form</h2>
+
+    <form
+      name="myForm">
+
+      <p>Username:<br>
+        <input type="text" name="user" ng-model="user" required>
+        <br>
+        <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+<span ng-show="myForm.user.$error.required">Username is required.</span>
+</span>
+      </p>
+
+      <p>Password:<br>
+        <input type="password" name="password" ng-model="password" required>
+        <br>
+        <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+<span ng-show="myForm.password.$error.required">Password is required.</span>
+<span ng-show="myForm.password.$error.password">Invalid password.</span>
+</span>
+      </p>
+
+      <p>Email:<br>
+
+        <input type="email" name="email" ng-model="email" required>
+        <br>
+        <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+<span ng-show="myForm.email.$error.required">Email is requiredd.</span>
+<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+</span>
+      </p>
+      <input type="submit" ng-click="sub()"
+             ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+myForm.email.$dirty && myForm.email.$invalid||myForm.password.$dirty && myForm.password.$invalid">
+
+
+    </form>
+  </div>
+
+
+  </div>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('validateCtrl', function($scope,$timeout) {
+    $scope.user = 'John Doe';
+    $scope.email = 'john.doe@gmail.com';
+    $scope.password= 'dfg786jkP';
+    $scope.sub=function(){
+      $scope.cls="animate";
+      $timeout(()=>{$scope.login=true;},100);
+    }
+  });
+</script>
+
+</body>

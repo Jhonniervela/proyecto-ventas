@@ -1,30 +1,40 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {TalleresComponent} from "./talleres.component";
+import {ProgramasComponent} from "./programas/programas.component";
+import {TallerComponent} from "./taller/taller.component";
+import {ClientesComponent} from "./clientes/clientes.component";
+import {CajaComponent} from "./caja/caja.component";
+import {CategoriaComponent} from "../categoria/categoria.component";
+
 
 const routes: Routes = [
   {
     path: '',
     component: TalleresComponent,
-    children: [{
-      path: 'taller',
-      loadChildren: () => import('./taller/taller.module')
-        .then(m => m.TallerModule)
-      },
+    children: [
+
       {
-        path: 'materiales',
-        loadChildren: () => import('./materiales/materiales.module')
-          .then(m => m.MaterialesModule)
+      path: 'taller',
+      component:TallerComponent
       },
+
       {
         path: 'programas',
-        loadChildren: () => import('./programas/programas.module')
-          .then(m => m.ProgramasModule)
+        component:ProgramasComponent
       },
       {
-        path: 'personas',
-        loadChildren: () => import('./personas/personas.module')
-          .then(m => m.PersonasModule)
+        path: 'categoria',
+        component:CategoriaComponent
+      },
+
+      {
+        path: 'clientes',
+        component:ClientesComponent
+      },
+      {
+        path: 'caja',
+        component: CajaComponent
       }]
   }
 ]

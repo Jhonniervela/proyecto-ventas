@@ -5,20 +5,20 @@
       <tbody>
       <tr>
         <th>#</th>
-        <th>Programa</th>
+        <th>Nombre</th>
         <th>Descripción</th>
         <th colspan="2" class="text-center">Opciones</th>
       </tbody>
       <tbody>
-      <tr *ngFor="let programa of programas; index as i">
+      <tr *ngFor="let categoria of categorias; index as i">
         <td>{{i+1}}</td>
-        <td>{{programa.progNombre}}</td>
-        <td>{{programa.progDescripcion}}</td>
+        <td>{{categoria.cateNombre}}</td>
+        <td>{{categoria.cateDescripcion}}</td>
         <td class="text-center">
-          <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(programa)">Editar</button>
+          <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(categoria)">Editar</button>
         </td>
         <td class="text-center">
-          <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(programa)">Eliminar</button>
+          <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(categoria)">Eliminar</button>
         </td>
       </tr>
       </tbody>

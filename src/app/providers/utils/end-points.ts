@@ -2,8 +2,10 @@ export const END_POINTS = {
   api: 'http://localhost:8080/api/',
   talleres: {
     taller: 'talleres',
-    materiales: 'materiales',
+    cliente: 'cliente',
+    categoria: 'categoria',
+    caja: 'caja',
     programa: 'programa',
-    persona: 'persona',
+
   }
 };

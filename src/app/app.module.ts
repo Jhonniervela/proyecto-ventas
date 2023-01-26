@@ -21,6 +21,7 @@ import {FormBuilder} from "@angular/forms";
     NgbModule
   ],
   providers: [FormBuilder],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent]
 })
 export class AppModule { }

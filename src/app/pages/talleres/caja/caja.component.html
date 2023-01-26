@@ -1,0 +1,27 @@
+<div container styles="height: 150px; width: 10px; ">
+  <button (click)="openModal()" type="button" class="btn btn-primary float-right mb-3">Nuevo</button>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <tbody>
+      <tr>
+      <th>#</th>
+      <th>Pago</th>
+      <th>Cambio</th>
+      <th colspan="2" class="text-center">Opciones</th>
+    </tbody>
+    <tbody>
+      <tr *ngFor="let caja of cajas; index as i">
+        <td>{{i+1}}</td>
+        <td>{{caja.cajPago}}</td>
+        <td>{{caja.cajCambio}}
+        <td class="text-center">
+          <button type="button" class="btn btn-sm btn-warning" (click)="openModalEdit(caja)">Editar</button>
+        </td>
+        <td class="text-center">
+          <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(caja)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
