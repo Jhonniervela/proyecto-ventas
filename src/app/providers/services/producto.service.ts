@@ -7,9 +7,9 @@ import {END_POINTS} from "../utils/end-points";
 @Injectable({
   providedIn: 'root'
 })
-export class ProgramaService extends EntityDataService<IResponse>{
+export class CajaService extends EntityDataService<IResponse>{
 
   constructor(protected override httpClient: HttpClient) {
-    super(httpClient, END_POINTS.api+END_POINTS.talleres.programa);
+    super(httpClient, END_POINTS.api+END_POINTS.talleres.caja);
   }
 }

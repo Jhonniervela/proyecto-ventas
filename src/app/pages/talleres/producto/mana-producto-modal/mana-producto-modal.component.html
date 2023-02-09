@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{title}} Producto</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">x</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="frmProductos">
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Nombre del Producto</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="prodNombre" class="form-control" placeholder="Ingrese nombre">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Precio</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="prodPrecio" class="form-control" placeholder="Ingrese Descripción">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Stock</label>
+      <div class="col-sm-9">
+        <input type="text" formControlName="prodStock" class="form-control" placeholder="Ingrese nombre">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-label">Categoria</label>
+      <div class="col-sm-9">
+        <select class="form-control" formControlName="catId">
+          <option *ngFor="let categoria of categorias" [value]="categoria.catId">{{categoria.catNom}}</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" [disabled]="frmProductos.invalid" *ngIf="title=='Nuevo'" class="btn btn-primary" (click)="save()">Guardar</button>
+  <button type="button" [disabled]="frmProductos.invalid" *ngIf="title=='Modificar'" class="btn btn-primary" (click)="update()">Guardar</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('Cancel')">Cancelar</button>
+</div>
